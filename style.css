@@ -50,3 +50,14 @@ body {
 #discord:hover {
   cursor: pointer;
 }
+
+#twitter {
+  position: absolute;
+  height: 7vh;
+  left: 8vh;
+  bottom: 0.5vw;
+}
+
+#twitter:hover {
+  cursor: pointer;
+}
