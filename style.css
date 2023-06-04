@@ -61,3 +61,10 @@ body {
 #twitter:hover {
   cursor: pointer;
 }
+
+#instagram {
+  position: absolute;
+  height: 7vh;
+  left: 14vh;
+  bottom: 0.5vw;
+}
