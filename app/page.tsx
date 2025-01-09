@@ -1,5 +1,5 @@
 "use client";
-import { DISCORD_URL } from "@/env";
+import { DISCORD_URL } from "../env";
 
 export default function Home() {
   const handleInviteDiscord = () => {
