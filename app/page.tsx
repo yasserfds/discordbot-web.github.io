@@ -2,11 +2,9 @@
 import { DISCORD_URL } from "@/env";
 
 export default function Home() {
-  const discordInviteURL = DISCORD_URL;
-
   const handleInviteDiscord = () => {
-    if (discordInviteURL) {
-      window.open(discordInviteURL, "_blank");
+    if (DISCORD_URL) {
+      window.open(DISCORD_URL, "_blank");
     } else {
       console.error("Discord invite URL is not provided.");
     }
