@@ -1,7 +1,8 @@
 "use client";
+import { DISCORD_URL } from "@/env";
 
 export default function Home() {
-  const discordInviteURL = process.env.NEXT_PUBLIC_DISCORD_OAUTH_URL;
+  const discordInviteURL = DISCORD_URL;
 
   const handleInviteDiscord = () => {
     if (discordInviteURL) {
