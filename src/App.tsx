@@ -1,3 +1,6 @@
+import discordImg from "../public/assets/discord.png";
+import twitterImg from "../public/assets/twitter.png";
+
 export default function App() {
   const discordInviteURL = import.meta.env.VITE_INVITE_DISCORD_URL;
 
@@ -34,7 +37,7 @@ export default function App() {
           <img
             id="discord"
             draggable="false"
-            src="/assets/discord.png"
+            src={discordImg}
             alt="Discord"
             className="absolute h-[7vh] left-[0.5vw] bottom-[0.5vw] cursor-pointer"
           />
@@ -47,7 +50,7 @@ export default function App() {
           <img
             id="twitter"
             draggable="false"
-            src="/assets/twitter.png"
+            src={twitterImg}
             alt="Twitter"
             className="absolute h-[7vh] left-[8vh] bottom-[0.5vw] cursor-pointer"
           />
