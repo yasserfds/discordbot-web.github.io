@@ -4,23 +4,37 @@ import { links } from "../utils/utils";
 
 export default function Home() {
   const discordInviteURL = import.meta.env.VITE_INVITE_DISCORD_URL;
-  const [isLoading, setIsLoading] = useState(false);
+  const [isCooldown, setIsCooldown] = useState(false);
 
   const handleInviteDiscord = () => {
-    if (isLoading) {
+    if (isCooldown) {
       toast.error("Please wait for the cooldown to finish.");
       return;
     }
 
     if (discordInviteURL) {
-      toast.success("Opening Discord invite URL in 5 sec...");
-      setIsLoading(true);
-      setTimeout(() => {
-        window.open(discordInviteURL, "_blank");
-        setIsLoading(false);
-      }, 5000);
+      let countdown = 5;
+      const toastId = toast.success(`Opening Discord invite in ${countdown}`, {
+        duration: 5000,
+      });
+
+      setIsCooldown(true);
+
+      const intervalId = setInterval(() => {
+        countdown -= 1;
+
+        toast.success(`Opening Discord invite in ${countdown}`, {
+          id: toastId,
+        });
+
+        if (countdown <= 0) {
+          clearInterval(intervalId);
+          window.open(discordInviteURL, "_blank");
+          setIsCooldown(false);
+        }
+      }, 1000);
     } else {
-      toast.error("Discord invite URL is not provided.");
+      toast.error("Discord invite URL is not set.");
     }
   };
 
@@ -36,9 +50,8 @@ export default function Home() {
           <button
             className="px-5 py-3 mt-5 bg-[#7289da] text-white border-none rounded-md cursor-pointer text-lg md:text-xl transition-colors duration-300 ease hover:bg-[#677bc4]"
             onClick={handleInviteDiscord}
-            disabled={isLoading}
           >
-            {isLoading ? "Preparing..." : "Invite Rawly"}
+            {isCooldown ? "Preparing..." : "Invite Rawly"}
           </button>
         </div>
 
