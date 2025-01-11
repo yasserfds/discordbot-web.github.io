@@ -92,7 +92,7 @@ export default function Home() {
           </div>
           {/* Author */}
           <p className="text-white text-center text-sm md:text-base mt-10">
-            Made by: <span className="text-red-400">Yasser Fedsi</span>
+            Made by: <span className="text-black">Yasser Fedsi</span>
           </p>
         </div>
       </div>
