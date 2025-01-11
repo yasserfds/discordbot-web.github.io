@@ -1,5 +1,5 @@
-import discordImg from "../../public/assets/discord.png";
-import twitterImg from "../../public/assets/twitter.png";
+import discordImg from "../assets/discord.png";
+import twitterImg from "../assets/twitter.png";
 
 const images = {
   Discord: discordImg,
