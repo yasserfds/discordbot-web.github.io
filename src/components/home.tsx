@@ -1,10 +1,24 @@
 import toast, { Toaster } from "react-hot-toast";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { links } from "../utils/utils";
 
 export default function Home() {
   const discordInviteURL = import.meta.env.VITE_INVITE_DISCORD_URL;
   const [isCooldown, setIsCooldown] = useState(false);
+
+  useEffect(() => {
+    const handleBeforeUnload = (e: BeforeUnloadEvent) => {
+      if (isCooldown) {
+        e.preventDefault();
+      }
+    };
+
+    window.addEventListener("beforeunload", handleBeforeUnload);
+
+    return () => {
+      window.removeEventListener("beforeunload", handleBeforeUnload);
+    };
+  }, [isCooldown]);
 
   const handleInviteDiscord = () => {
     if (isCooldown) {
